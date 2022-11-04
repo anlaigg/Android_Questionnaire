@@ -37,6 +37,7 @@ dependencies {
     implementation files('libs\\poi-ooxml-4.0.1.jar')
     implementation files('libs\\poi-ooxml-schemas-4.0.1.jar')
     implementation files('libs\\poi-scratchpad-4.0.1.jar')
+    implementation files('libs\\poi-4.0.1.jar')
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'

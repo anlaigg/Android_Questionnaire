@@ -79,7 +79,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="338dp"
+            android:layout_height="240dp"
             android:orientation="horizontal">
 
             <RadioGroup
@@ -88,89 +88,34 @@
                 android:layout_height="224dp"
                 android:orientation="vertical">
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
+
+                <RadioButton
+                    android:id="@+id/radioButton3"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:layout_weight="1"
+                    android:text="@string/A2"
+                    android:textSize="16sp"
+                    tools:ignore="TouchTargetSizeCheck" />
 
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"></View>
-
-                    <RadioButton
-                        android:id="@+id/radioButton3"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="不知所措"
-                        android:textSize="16sp"
-                        tools:ignore="TouchTargetSizeCheck" />
-
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"></View>
-                </LinearLayout>
-
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"></View>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
+                <RadioButton
+                    android:id="@+id/radioButton1"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:layout_weight="1"
+                    android:text="@string/B2"
+                    tools:ignore="TouchTargetSizeCheck" />
 
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"></View>
-
-                    <RadioButton
-                        android:id="@+id/radioButton1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="帮助保存"
-                        tools:ignore="TouchTargetSizeCheck" />
-
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"></View>
-                </LinearLayout>
-
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"></View>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
+                <RadioButton
+                    android:id="@+id/radioButton2"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:layout_weight="1"
+                    android:text="@string/C2"
+                    tools:ignore="TouchTargetSizeCheck" />
 
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"></View>
-
-                    <RadioButton
-                        android:id="@+id/radioButton2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="拒绝保存"
-                        tools:ignore="TouchTargetSizeCheck" />
-
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"></View>
-                </LinearLayout>
             </RadioGroup>
+
         </LinearLayout>
 
         <LinearLayout
@@ -179,7 +124,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/btnAdd"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -189,23 +134,25 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="17dp"
+            android:layout_height="48dp"
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/abandon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
+                android:clickable="true"
                 android:text="作废此问题" />
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/export"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
+                android:clickable="true"
                 android:text="导出调查统计" />
         </LinearLayout>
 

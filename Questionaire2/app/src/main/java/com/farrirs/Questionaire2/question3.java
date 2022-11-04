@@ -10,6 +10,8 @@ import android.os.Environment;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RadioButton;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.VideoView;
 
@@ -23,13 +25,20 @@ import java.io.File;
 public class question3 extends AppCompatActivity implements View.OnClickListener {
     private VideoView videoView; //主菜单
 
-    Button btnReplay,btnBack,btnNext;
+    Button btnReplay,btnBack,btnNext,butAdd;
+    TextView abandon,export;
+    RadioButton[] choices=new RadioButton[4];
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_question3);
+        choices[1]=findViewById(R.id.radioButton1);
+        choices[2]=findViewById(R.id.radioButton2);
+        choices[3]=findViewById(R.id.radioButton3);
+
+        if(Info.getIndex(2)!=0)choices[Info.getIndex(2)].setChecked(true);
+
         videoView = (VideoView)findViewById(R.id.videoView1);
 
 //        Button btnPlay = (Button)findViewById(R.id.btnPlay);
@@ -45,7 +54,13 @@ public class question3 extends AppCompatActivity implements View.OnClickListener
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                for(int i=1;i<4;i++)
+                {
+                    if(choices[i].isChecked())
+                    {
+                        Info.setIndex(2,i);
+                    }
+                }
                 Intent intent = new Intent(question3.this, question4.class);
                 startActivity(intent);
             }
@@ -55,8 +70,61 @@ public class question3 extends AppCompatActivity implements View.OnClickListener
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                for(int i=1;i<4;i++)
+                {
+                    if(choices[i].isChecked())
+                    {
+                        Info.setIndex(2,i);
+                    }
+                }
                 Intent intent = new Intent(question3.this, question2.class);
                 startActivity(intent);
+            }
+        });
+        butAdd = findViewById(R.id.btnAdd);
+        butAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                for(int i=0;i<6;i++)
+                {
+                    if(Info.getIndex(i)==0)
+                    {
+                        Toast.makeText(question3.this, "问卷第"+String.valueOf(i+1)+"题未填写", Toast.LENGTH_SHORT).show();
+                        return;
+                    }else{
+                        MySQLiteOpenHelper myDB = new MySQLiteOpenHelper(question3.this);
+                        myDB.addItem(Info.getName(),Info.getGender(),Info.getAge(),
+                                Info.getIndex(0),Info.getIndex(1),Info.getIndex(2),
+                                Info.getIndex(3), Info.getIndex(4),Info.getIndex(5));
+                    }
+
+                }
+            }
+        });
+
+
+        abandon= findViewById(R.id.abandon);
+        abandon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Info.setGender("");
+                Info.setAge("");
+                Info.setName("");
+                for(int i=0;i<6;i++){
+                    Info.setIndex(i,0);
+                }
+                Intent intent = new Intent(question3.this, Login.class);
+                startActivity(intent);
+                return;
+            }
+        });
+        export=findViewById(R.id.export);
+        export.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(question3.this, MainActivity.class);
+                startActivity(intent);
+                return;
             }
         });
 

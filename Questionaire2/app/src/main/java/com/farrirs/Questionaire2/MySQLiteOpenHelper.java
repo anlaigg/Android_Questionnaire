@@ -36,13 +36,13 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
     private String sql_create_table = "CREATE TABLE IF NOT EXISTS " + TABLE_NAME + " ("
             + COLUMN_ID + " integer primary key autoincrement,"
             + COLUMN_NAME + " varchar(60),"
-            + COLUMN_GENDER + " varchar(1),"
-            + COLUMN_AGE + "int"
-            +COLUMN_Q1+"int"
-            +COLUMN_Q2+"int"
-            +COLUMN_Q3+"int"
-            +COLUMN_Q4+"int"
-            +COLUMN_Q5+"int"
+            + COLUMN_GENDER + " varchar(10),"
+            + COLUMN_AGE + " varchar(10),"
+            +COLUMN_Q1+" int,"
+            +COLUMN_Q2+" int,"
+            +COLUMN_Q3+" int,"
+            +COLUMN_Q4+" int,"
+            +COLUMN_Q5+" int,"
             +COLUMN_Q6+" int)";
 
     public MySQLiteOpenHelper(@Nullable Context context) {
@@ -70,7 +70,7 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
 
     }
 
-    void addItem(String name,String gender,int age,int q1,int q2,int q3,int q4,int q5,int q6){
+    void addItem(String name,String gender,String age,int q1,int q2,int q3,int q4,int q5,int q6){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
