@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">Questionaire2</string>
+
+    <string name="Q1">1.当同伴让你保存奇怪的药品时，你会怎么办？</string>
+    <string name="Q2">2.当同伴带你去KTV时，发现有人吸食奇怪的气体，你会怎么办？</string>
+    <string name="Q3">3.当你出游时，有人强迫你吸食笑气，你会怎么办？</string>
+    <string name="Q4">4.当你在校门口遇到禁毒宣传时，你会怎么办？</string>
+    <string name="Q5">5.如果你是场景中的同学，你会怎么办？</string>
+    <string name="Q6">6.</string>
+
+    <string name="A1">帮忙保存</string>
+    <string name="A2">报警</string>
+    <string name="A3">跟着吸一口</string>
+    <string name="A4">将传单丢掉</string>
+    <string name="A5">仅了解毒品信息，但不会选择去购买</string>
+    <string name="A6">不关心，悄悄复习其他功课</string>
+
+    <string name="B1">拒绝保存</string>
+    <string name="B2">跟着吸一口</string>
+    <string name="B3">坚决不吸</string>
+    <string name="B4">婉言拒绝</string>
+    <string name="B5">会尝试购买毒品</string>
+    <string name="B6">认真听讲</string>
+
+    <string name="C1">不知所措</string>
+    <string name="C2">视而不见</string>
+    <string name="C3">悄悄地逃离</string>
+    <string name="C4">一起加入宣传</string>
+    <string name="C5">把链接分享给别人</string>
+    <string name="C6">坐着发呆</string>
+
+</resources>
