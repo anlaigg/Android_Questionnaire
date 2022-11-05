@@ -51,6 +51,7 @@ public class question1 extends AppCompatActivity implements View.OnClickListener
             @Override
             public void onClick(View view) {
                 videoView.resume();
+                videoView.start();
             }
         });
 
@@ -97,15 +98,17 @@ public class question1 extends AppCompatActivity implements View.OnClickListener
                     {
                         Toast.makeText(question1.this, "问卷第"+String.valueOf(i+1)+"题未填写", Toast.LENGTH_SHORT).show();
                         return;
-                    }else{
-                        MySQLiteOpenHelper myDB = new MySQLiteOpenHelper(question1.this);
-                        myDB.addItem(Info.getName(),Info.getGender(),Info.getAge(),
-                                Info.getIndex(0),Info.getIndex(1),Info.getIndex(2),
-                                Info.getIndex(3), Info.getIndex(4),Info.getIndex(5));
-                        return;
                     }
-
                 }
+                MySQLiteOpenHelper myDB = new MySQLiteOpenHelper(question1.this);
+                myDB.addItem(Info.getName(),Info.getGender(),Info.getAge(),
+                        Info.getIndex(0),Info.getIndex(1),Info.getIndex(2),
+                        Info.getIndex(3), Info.getIndex(4),Info.getIndex(5));
+
+
+                Intent intent = new Intent(question1.this, Login.class);
+                startActivity(intent);
+                return;
             }
         });
 

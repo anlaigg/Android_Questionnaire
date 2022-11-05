@@ -77,7 +77,7 @@ tools:context=".MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="240dp"
+        android:layout_height="220dp"
         android:orientation="horizontal">
 
         <RadioGroup
@@ -117,7 +117,7 @@ tools:context=".MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="160dp"
+        android:layout_height="60dp"
         android:orientation="horizontal">
 
         <Button
