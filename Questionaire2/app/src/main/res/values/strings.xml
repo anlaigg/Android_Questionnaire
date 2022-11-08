@@ -29,4 +29,14 @@
     <string name="C5">把链接分享给别人</string>
     <string name="C6">坐着发呆</string>
 
+    <string-array name="spinner_data">
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+    </string-array>
+
 </resources>
