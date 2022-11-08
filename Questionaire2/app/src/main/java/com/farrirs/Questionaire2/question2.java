@@ -77,6 +77,7 @@ public class question2 extends AppCompatActivity implements View.OnClickListener
                     if(choices[i].isChecked())
                     {
                         Info.setIndex(1,i);
+
                     }
                 }
                 Intent intent = new Intent(question2.this, question1.class);
@@ -102,7 +103,7 @@ public class question2 extends AppCompatActivity implements View.OnClickListener
                         Info.getIndex(3), Info.getIndex(4),Info.getIndex(5));
 
 
-                Intent intent = new Intent(question2.this, Login.class);
+                Intent intent = new Intent(question2.this, result.class);
                 startActivity(intent);
                 return;
             }

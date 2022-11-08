@@ -101,7 +101,7 @@ public class question3 extends AppCompatActivity implements View.OnClickListener
                         Info.getIndex(3), Info.getIndex(4),Info.getIndex(5));
 
 
-                Intent intent = new Intent(question3.this, Login.class);
+                Intent intent = new Intent(question3.this, result.class);
                 startActivity(intent);
                 return;
             }

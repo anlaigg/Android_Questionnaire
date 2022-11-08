@@ -88,7 +88,7 @@
 
 
                 <RadioButton
-                    android:id="@+id/radioButton3"
+                    android:id="@+id/radioButton1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -97,7 +97,7 @@
                     tools:ignore="TouchTargetSizeCheck" />
 
                 <RadioButton
-                    android:id="@+id/radioButton1"
+                    android:id="@+id/radioButton2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -105,7 +105,7 @@
                     tools:ignore="TouchTargetSizeCheck" />
 
                 <RadioButton
-                    android:id="@+id/radioButton2"
+                    android:id="@+id/radioButton3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
