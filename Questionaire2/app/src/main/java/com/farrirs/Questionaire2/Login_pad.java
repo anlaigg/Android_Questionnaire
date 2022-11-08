@@ -65,7 +65,5 @@ public class Login_pad extends AppCompatActivity{
         rg_gender = findViewById(R.id.rg_gender);
         rb_gender1 = findViewById(R.id.rb_man);
         rb_gender2 = findViewById(R.id.rb_woman);
-        input_name = findViewById(R.id.input_name);
-        input_age = findViewById(R.id.input_age);
     }
 }
