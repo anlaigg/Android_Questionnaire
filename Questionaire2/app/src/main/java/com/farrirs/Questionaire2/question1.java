@@ -22,6 +22,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import java.io.File;
+import java.security.acl.Group;
 
 public class question1 extends AppCompatActivity implements View.OnClickListener {
     private VideoView videoView; //主菜单
@@ -35,6 +36,8 @@ public class question1 extends AppCompatActivity implements View.OnClickListener
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question1);
+
+        rg_gender=findViewById(R.id.radioGroup);
 
         choices[1]=findViewById(R.id.radioButton1);
         choices[2]=findViewById(R.id.radioButton2);
@@ -139,14 +142,23 @@ public class question1 extends AppCompatActivity implements View.OnClickListener
         });
 
 
+        for(int i=0 ;i< rg_gender.getChildCount();i++){
+            rg_gender.getChildAt(i).setEnabled(false);
+        }
+
         String url="android.resource://"+getPackageName()+"/"+R.raw.qq1;
         videoView.setVideoURI(Uri.parse(url));
         videoView.start();
-//        if(ContextCompat.checkSelfPermission(question1.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED){
-//            ActivityCompat.requestPermissions(question1.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
-//        }else {
-//            initVideoPath();//初始化MediaPlayer
-//        }
+        videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
+        {
+            @Override
+            public void onCompletion(MediaPlayer mp)
+            {
+                for(int i=0 ;i< rg_gender.getChildCount();i++){
+                    rg_gender.getChildAt(i).setEnabled(true);
+                }
+            }
+        });
 
     }
 

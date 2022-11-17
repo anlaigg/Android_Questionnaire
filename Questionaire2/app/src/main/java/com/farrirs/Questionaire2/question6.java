@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.VideoView;
@@ -27,6 +28,7 @@ public class question6 extends AppCompatActivity implements View.OnClickListener
 
     Button btnReplay,btnBack,btnNext,butAdd;
     TextView abandon,export;
+    RadioGroup rg_gender;
     RadioButton[] choices=new RadioButton[4];
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +36,7 @@ public class question6 extends AppCompatActivity implements View.OnClickListener
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question6);
         videoView = (VideoView)findViewById(R.id.videoView1);
+        rg_gender=findViewById(R.id.radioGroup);
         choices[1]=findViewById(R.id.radioButton1);
         choices[2]=findViewById(R.id.radioButton2);
         choices[3]=findViewById(R.id.radioButton3);
@@ -134,9 +137,24 @@ public class question6 extends AppCompatActivity implements View.OnClickListener
             }
         });
 
+
+        for(int i=0 ;i< rg_gender.getChildCount();i++){
+            rg_gender.getChildAt(i).setEnabled(false);
+        }
+
         String url="android.resource://"+getPackageName()+"/"+R.raw.qq6;
         videoView.setVideoURI(Uri.parse(url));
         videoView.start();
+        videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
+        {
+            @Override
+            public void onCompletion(MediaPlayer mp)
+            {
+                for(int i=0 ;i< rg_gender.getChildCount();i++){
+                    rg_gender.getChildAt(i).setEnabled(true);
+                }
+            }
+        });
     }
 
     @Override
@@ -175,5 +193,4 @@ public class question6 extends AppCompatActivity implements View.OnClickListener
             videoView.suspend();
         }
     }
-
 }
