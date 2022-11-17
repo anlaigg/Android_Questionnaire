@@ -25,6 +25,8 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
     public static final String COLUMN_NAME = "name";
     public static final String COLUMN_GENDER = "gender";
     public static final String COLUMN_AGE = "age";
+    public static final String COLUMN_SCHOOL = "school";
+
     public static final String COLUMN_Q1 = "answer1";
     public static final String COLUMN_Q2 = "answer2";
     public static final String COLUMN_Q3 = "answer3";
@@ -38,6 +40,7 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
             + COLUMN_NAME + " varchar(60),"
             + COLUMN_GENDER + " varchar(10),"
             + COLUMN_AGE + " varchar(10),"
+            + COLUMN_SCHOOL + " varchar(60),"
             +COLUMN_Q1+" int,"
             +COLUMN_Q2+" int,"
             +COLUMN_Q3+" int,"
@@ -70,13 +73,14 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
 
     }
 
-    void addItem(String name,String gender,String age,int q1,int q2,int q3,int q4,int q5,int q6){
+    void addItem(String name,String gender,String age,String school,int q1,int q2,int q3,int q4,int q5,int q6){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
         cv.put(COLUMN_NAME,name);
         cv.put(COLUMN_GENDER,gender);
         cv.put(COLUMN_AGE,age);
+        cv.put(COLUMN_SCHOOL,school);
         cv.put(COLUMN_Q1,q1);
         cv.put(COLUMN_Q2,q2);
         cv.put(COLUMN_Q3,q3);

@@ -96,7 +96,7 @@ public class question3 extends AppCompatActivity implements View.OnClickListener
                     }
                 }
                 MySQLiteOpenHelper myDB = new MySQLiteOpenHelper(question3.this);
-                myDB.addItem(Info.getName(),Info.getGender(),Info.getAge(),
+                myDB.addItem(Info.getName(),Info.getGender(),Info.getAge(),Info.getSchool(),
                         Info.getIndex(0),Info.getIndex(1),Info.getIndex(2),
                         Info.getIndex(3), Info.getIndex(4),Info.getIndex(5));
 

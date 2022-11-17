@@ -18,8 +18,9 @@ public class Login extends AppCompatActivity{
     String name="";
     String gender="";
     String age="";
+    String school="";
 
-    EditText input_name,input_age;
+    EditText input_name,input_age,input_school;
     RadioGroup rg_gender;
     RadioButton rb_gender1;
     RadioButton rb_gender2;
@@ -38,8 +39,10 @@ public class Login extends AppCompatActivity{
                 else if(rb_gender2.isChecked())gender="woman";
                 name=input_name.getText().toString().trim();
                 age=input_age.getText().toString().trim();
+                school=input_school.getText().toString().trim();
 
-                if(gender.equals("")||name.equals("")||age.equals(""))
+
+                if(gender.equals("")||name.equals("")||age.equals("")||school.equals(""))
                 {
                     Toast.makeText(Login.this, "Please accomplish your input", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(Login.this, Login.class);
@@ -49,6 +52,7 @@ public class Login extends AppCompatActivity{
                 Info.setGender(gender);
                 Info.setAge(age);
                 Info.setName(name);
+                Info.setSchool(school);
                 Intent intent = new Intent(Login.this, question1.class);
                 startActivity(intent);
             }
@@ -62,5 +66,6 @@ public class Login extends AppCompatActivity{
         rb_gender2 = findViewById(R.id.rb_woman);
         input_name = findViewById(R.id.input_name);
         input_age = findViewById(R.id.input_age);
+        input_school=findViewById(R.id.input_school);
     }
 }

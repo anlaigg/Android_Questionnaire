@@ -5,6 +5,8 @@ public class Info {
     private static String gender;
     private static String age;
     private static String name;
+    private static String school;
+
     public static int getIndex(int idx)
     {
         return index[idx];
@@ -36,5 +38,13 @@ public class Info {
     public static void setName(String val)
     {
         name=val;
+    }
+    public static String getSchool()
+    {
+        return school;
+    }
+    public static void setSchool(String val)
+    {
+        school=val;
     }
 }

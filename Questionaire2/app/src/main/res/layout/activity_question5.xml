@@ -102,6 +102,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/B5"
+                    android:textSize="16sp"
                     tools:ignore="TouchTargetSizeCheck" />
 
                 <RadioButton
@@ -110,6 +111,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/C5"
+                    android:textSize="16sp"
                     tools:ignore="TouchTargetSizeCheck" />
 
             </RadioGroup>

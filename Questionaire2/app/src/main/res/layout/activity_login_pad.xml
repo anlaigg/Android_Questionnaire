@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Login">
+    tools:context=".Login_pad">
 
 
     <LinearLayout
@@ -36,19 +36,18 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
-                android:text="年龄:"
+                android:text="姓名:"
                 android:textSize="20dp" />
 
-            <Spinner
-                android:id="@+id/spinner"
-                android:layout_width="121dp"
-                android:layout_height="match_parent"
-
-                android:entries="@array/spinner_data"
-                android:spinnerMode="dialog"
-
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+            <EditText
+                android:id="@+id/input_name"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="请输入姓名"
+                android:inputType="textPersonName" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
@@ -81,6 +80,27 @@
         </LinearLayout>
 
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="67dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:text="年龄:"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/input_age"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+
+                android:ems="10"
+                android:gravity="center"
+                android:hint="请输入年龄"
+                android:inputType="textPersonName" />
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -93,12 +113,6 @@
                 android:layout_height="50dp"
                 android:layout_weight="1"
                 android:text="进入" />
-
-        </LinearLayout>
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
 
         </LinearLayout>
 
