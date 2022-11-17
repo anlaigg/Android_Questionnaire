@@ -29,6 +29,7 @@
     <string name="C5">把链接分享给别人</string>
     <string name="C6">坐着发呆</string>
 
+    <string name="blank"> </string>
     <string-array name="spinner_data">
         <item>9</item>
         <item>10</item>

@@ -39,7 +39,7 @@ public class result extends AppCompatActivity {
 
 
         if(grade<1){
-            img.setImageDrawable(getDrawable(R.drawable.excellent));
+            img.setImageDrawable(getDrawable(R.drawable.pass));
         }else if(grade<6){
             img.setImageDrawable(getDrawable(R.drawable.pass));
         }else{
