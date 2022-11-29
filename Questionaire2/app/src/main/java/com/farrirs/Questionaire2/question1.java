@@ -46,13 +46,14 @@ public class question1 extends AppCompatActivity implements View.OnClickListener
         if(Info.getIndex(0)!=0)choices[Info.getIndex(0)].setChecked(true);
 
         videoView = (VideoView)findViewById(R.id.videoView1);
-
+        videoView.setVisibility(View.VISIBLE);
 
 //        Button btnPlay = (Button)findViewById(R.id.btnPlay);
         btnReplay = findViewById(R.id.btnReplay);
         btnReplay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                videoView.setVisibility(View.VISIBLE);
                 videoView.resume();
                 videoView.start();
             }
@@ -154,6 +155,7 @@ public class question1 extends AppCompatActivity implements View.OnClickListener
             @Override
             public void onCompletion(MediaPlayer mp)
             {
+                videoView.setVisibility(View.INVISIBLE);
                 for(int i=0 ;i< rg_gender.getChildCount();i++){
                     rg_gender.getChildAt(i).setEnabled(true);
                 }
