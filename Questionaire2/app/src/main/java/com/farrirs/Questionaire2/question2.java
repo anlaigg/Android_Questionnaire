@@ -30,15 +30,22 @@ public class question2 extends AppCompatActivity implements View.OnClickListener
     TextView abandon,export;
     RadioGroup rg_gender;
     RadioButton[] choices=new RadioButton[4];
+    TextView text;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question2);
+        text=findViewById(R.id.textView);
         rg_gender=findViewById(R.id.radioGroup);
         choices[1]=findViewById(R.id.radioButton1);
         choices[2]=findViewById(R.id.radioButton2);
         choices[3]=findViewById(R.id.radioButton3);
+
+        text.setAlpha(0);
+        rg_gender.setAlpha(0);
 
         if(Info.getIndex(1)!=0)choices[Info.getIndex(1)].setChecked(true);
 
@@ -46,16 +53,17 @@ public class question2 extends AppCompatActivity implements View.OnClickListener
         videoView = (VideoView)findViewById(R.id.videoView1);
 
 //        Button btnPlay = (Button)findViewById(R.id.btnPlay);
-        btnReplay = findViewById(R.id.btnReplay);
-        btnReplay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                videoView.resume();
-                videoView.start();
-            }
-        });
+//        btnReplay = findViewById(R.id.btnReplay);
+//        btnReplay.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                videoView.resume();
+//                videoView.start();
+//            }
+//        });
 
         btnNext = findViewById(R.id.btnNext);
+        btnNext.setAlpha(0);
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -72,6 +80,7 @@ public class question2 extends AppCompatActivity implements View.OnClickListener
         });
 
         btnBack = findViewById(R.id.btnBack);
+        btnBack.setAlpha(0);
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -88,29 +97,29 @@ public class question2 extends AppCompatActivity implements View.OnClickListener
             }
         });
 
-        butAdd = findViewById(R.id.btnAdd);
-        butAdd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                for(int i=0;i<6;i++)
-                {
-                    if(Info.getIndex(i)==0)
-                    {
-                        Toast.makeText(question2.this, "问卷第"+String.valueOf(i+1)+"题未填写", Toast.LENGTH_SHORT).show();
-                        return;
-                    }
-                }
-                MySQLiteOpenHelper myDB = new MySQLiteOpenHelper(question2.this);
-                myDB.addItem(Info.getName(),Info.getGender(),Info.getAge(),
-                        Info.getIndex(0),Info.getIndex(1),Info.getIndex(2),
-                        Info.getIndex(3), Info.getIndex(4),Info.getIndex(5));
-
-
-                Intent intent = new Intent(question2.this, result.class);
-                startActivity(intent);
-                return;
-            }
-        });
+//        butAdd = findViewById(R.id.btnAdd);
+//        butAdd.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                for(int i=0;i<6;i++)
+//                {
+//                    if(Info.getIndex(i)==0)
+//                    {
+//                        Toast.makeText(question2.this, "问卷第"+String.valueOf(i+1)+"题未填写", Toast.LENGTH_SHORT).show();
+//                        return;
+//                    }
+//                }
+//                MySQLiteOpenHelper myDB = new MySQLiteOpenHelper(question2.this);
+//                myDB.addItem(Info.getName(),Info.getGender(),Info.getAge(),
+//                        Info.getIndex(0),Info.getIndex(1),Info.getIndex(2),
+//                        Info.getIndex(3), Info.getIndex(4),Info.getIndex(5));
+//
+//
+//                Intent intent = new Intent(question2.this, result.class);
+//                startActivity(intent);
+//                return;
+//            }
+//        });
 
         abandon= findViewById(R.id.abandon);
         abandon.setOnClickListener(new View.OnClickListener() {
@@ -150,6 +159,10 @@ public class question2 extends AppCompatActivity implements View.OnClickListener
             @Override
             public void onCompletion(MediaPlayer mp)
             {
+                text.setAlpha(1);
+                rg_gender.setAlpha(1);
+                btnBack.setAlpha(1);
+                btnNext.setAlpha(1);
                 for(int i=0 ;i< rg_gender.getChildCount();i++){
                     rg_gender.getChildAt(i).setEnabled(true);
                 }
@@ -193,9 +206,9 @@ public class question2 extends AppCompatActivity implements View.OnClickListener
     //统一处理Play(播放)、Pause(暂停)、Replay(重新播放)的逻辑
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.btnReplay:
+            case R.id.btnBack:
                 if(videoView.isPlaying()){
-                    videoView.resume();//重新播放
+//                    videoView.resume();//重新播放
                 }
                 break;
         }

@@ -8,46 +8,82 @@
     tools:context=".result">
 
     <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="419dp"
-        android:layout_height="209dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginBottom="400dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_gravity="center">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"></LinearLayout>
+
+
+        <!--                <|>-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="2">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_gravity="center">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"></LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+
+                    <ImageView
+                        android:id="@+id/img_result"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/_defalt" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <Button
+                        android:id="@+id/button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/result_quit"
+                        android:contentDescription="@string/blank"
+                        tools:ignore="SpeakableTextPresentCheck" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"></LinearLayout>
+
 
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/img_result"
-        android:layout_width="200dp"
-        android:layout_height="80dp"
-        android:layout_marginBottom="100dp"
-        android:layout_weight="1"
-        app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
-        app:srcCompat="@drawable/_defalt" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="164dp"
-        android:layout_height="59dp"
-        android:layout_weight="1"
-        android:background="@drawable/result_quit"
-        android:contentDescription="@string/blank"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
-        app:layout_constraintVertical_bias="0.73"
-        tools:ignore="SpeakableTextPresentCheck" />
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

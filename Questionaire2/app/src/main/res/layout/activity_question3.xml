@@ -18,142 +18,215 @@
 
     tools:context=".MainActivity">
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <VideoView
-            android:id="@+id/videoView1"
-            android:layout_width="match_parent"
-            android:layout_height="250dp" />
-
+        android:layout_height="match_parent">
+        <!--        video-->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:orientation="horizontal">
+            android:layout_height="match_parent">
 
-            <Button
-                android:id="@+id/btnReplay"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:onClick="btnReplay"
-
-                android:text="从头播放" />
-
-            <Button
-                android:id="@+id/btnBack"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:onClick="back"
-                android:text="上一题" />
-
-            <Button
-                android:id="@+id/btnNext"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:onClick="next"
-                android:text="下一题" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/textView"
+            <VideoView
+                android:id="@+id/videoView1"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/Q3"
-                android:textSize="20dp" />
+                android:layout_height="match_parent" />
         </LinearLayout>
 
+        <!--        question-->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="220dp"
-            android:orientation="horizontal">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            <RadioGroup
-                android:id="@+id/radioGroup"
+            <!--            问题-->
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="224dp"
-                android:orientation="vertical">
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:orientation="horizontal">
 
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"></LinearLayout>
 
-                <RadioButton
-                    android:id="@+id/radioButton1"
-                    android:layout_width="match_parent"
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:id="@+id/textView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/Q3"
+                            android:textSize="30dp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"></LinearLayout>
+
+            </LinearLayout>
+
+            <!--            选项-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:layout_gravity="center">
+
+                <LinearLayout
+                    android:layout_width="75dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"></LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <RadioGroup
+                            android:id="@+id/radioGroup"
+                            android:layout_width="match_parent"
+                            android:layout_height="224dp"
+                            android:orientation="vertical"
+                            android:layout_gravity="center"
+                            android:gravity="center">
+
+                            <RadioButton
+                                android:id="@+id/radioButton1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/A3"
+                                android:textSize="24sp"
+                                tools:ignore="TouchTargetSizeCheck" />
+
+                            <RadioButton
+                                android:id="@+id/radioButton2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/B3"
+                                android:textSize="24sp"
+                                tools:ignore="TouchTargetSizeCheck" />
+
+                            <RadioButton
+                                android:id="@+id/radioButton3"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/C3"
+
+                                android:textSize="24sp"
+                                tools:ignore="TouchTargetSizeCheck" />
+
+                        </RadioGroup>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"></LinearLayout>
+
+            </LinearLayout>
+
+            <!--            按钮-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal">
+
+                <!--                <Button-->
+                <!--                    android:id="@+id/btnReplay"-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_weight="1"-->
+                <!--                    android:onClick="btnReplay"-->
+
+                <!--                    android:text="从头播放" />-->
+
+                <Button
+                    android:id="@+id/btnBack"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/A3"
-                    android:textSize="16sp"
-                    tools:ignore="TouchTargetSizeCheck" />
+                    android:onClick="back"
+                    android:text="上一题" />
 
-                <RadioButton
-                    android:id="@+id/radioButton2"
-                    android:layout_width="match_parent"
+                <Button
+                    android:id="@+id/btnNext"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/B3"
-                    tools:ignore="TouchTargetSizeCheck" />
+                    android:onClick="next"
+                    android:text="下一题" />
 
-                <RadioButton
-                    android:id="@+id/radioButton3"
-                    android:layout_width="match_parent"
+            </LinearLayout>
+
+
+            <!--            提交按钮 删-->
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="60dp"-->
+            <!--                android:orientation="horizontal">-->
+
+            <!--                <Button-->
+            <!--                    android:id="@+id/btnAdd"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_weight="1"-->
+            <!--                    android:shadowColor="@android:color/holo_blue_light"-->
+            <!--                    android:text="Button" />-->
+            <!--            </LinearLayout>-->
+
+            <!--            数据库相关 留-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/abandon"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/C3"
-                    tools:ignore="TouchTargetSizeCheck" />
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:text="作废此问题" />
 
-            </RadioGroup>
+                <TextView
+                    android:id="@+id/export"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:text="导出调查统计" />
+            </LinearLayout>
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:orientation="horizontal">
+    </RelativeLayout>
 
-            <Button
-                android:id="@+id/btnAdd"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:shadowColor="@android:color/holo_blue_light"
-                android:text="Button" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/abandon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:clickable="true"
-                android:gravity="center"
-                android:text="作废此问题" />
-
-            <TextView
-                android:id="@+id/export"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:clickable="true"
-                android:gravity="center"
-                android:text="导出调查统计" />
-        </LinearLayout>
-
-
-    </LinearLayout>
 </LinearLayout>

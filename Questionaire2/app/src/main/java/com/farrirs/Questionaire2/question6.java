@@ -26,50 +26,56 @@ import java.io.File;
 public class question6 extends AppCompatActivity implements View.OnClickListener {
     private VideoView videoView; //主菜单
 
-    Button btnReplay,btnBack,btnNext,butAdd;
+    Button btnReplay,btnBack,btnNext,btnAdd;
     TextView abandon,export;
     RadioGroup rg_gender;
     RadioButton[] choices=new RadioButton[4];
+    TextView text;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question6);
+        text=findViewById(R.id.textView);
         videoView = (VideoView)findViewById(R.id.videoView1);
         rg_gender=findViewById(R.id.radioGroup);
         choices[1]=findViewById(R.id.radioButton1);
         choices[2]=findViewById(R.id.radioButton2);
         choices[3]=findViewById(R.id.radioButton3);
 
+        text.setAlpha(0);
+        rg_gender.setAlpha(0);
+
         if(Info.getIndex(5)!=0)choices[Info.getIndex(5)].setChecked(true);
 
 
 //        Button btnPlay = (Button)findViewById(R.id.btnPlay);
-        btnReplay = findViewById(R.id.btnReplay);
-        btnReplay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                videoView.resume();
+//        btnReplay = findViewById(R.id.btnReplay);
+//        btnReplay.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                videoView.resume();
+//
+//                videoView.start();
+//            }
+//        });
 
-                videoView.start();
-            }
-        });
-
-        btnNext = findViewById(R.id.btnNext);
-        btnNext.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                for(int i=1;i<4;i++)
-                {
-                    if(choices[i].isChecked())
-                    {
-                        Info.setIndex(5,i);
-                    }
-                }
-            }
-        });
+//        btnNext = findViewById(R.id.btnNext);
+//        btnNext.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                for(int i=1;i<4;i++)
+//                {
+//                    if(choices[i].isChecked())
+//                    {
+//                        Info.setIndex(5,i);
+//                    }
+//                }
+//            }
+//        });
 
         btnBack = findViewById(R.id.btnBack);
+        btnBack.setAlpha(0);
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -86,10 +92,20 @@ public class question6 extends AppCompatActivity implements View.OnClickListener
             }
         });
 
-        butAdd = findViewById(R.id.btnAdd);
-        butAdd.setOnClickListener(new View.OnClickListener() {
+        btnAdd = findViewById(R.id.btnAdd);
+        btnAdd.setAlpha(0);
+        btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                for(int i=1;i<4;i++)
+                {
+                    if(choices[i].isChecked())
+                    {
+                        Info.setIndex(5,i);
+                    }
+                }
+
                 for(int i=0;i<6;i++)
                 {
                     if(Info.getIndex(i)==0)
@@ -150,6 +166,10 @@ public class question6 extends AppCompatActivity implements View.OnClickListener
             @Override
             public void onCompletion(MediaPlayer mp)
             {
+                text.setAlpha(1);
+                rg_gender.setAlpha(1);
+                btnBack.setAlpha(1);
+                btnAdd.setAlpha(1);
                 for(int i=0 ;i< rg_gender.getChildCount();i++){
                     rg_gender.getChildAt(i).setEnabled(true);
                 }
@@ -178,11 +198,6 @@ public class question6 extends AppCompatActivity implements View.OnClickListener
     //统一处理Play(播放)、Pause(暂停)、Replay(重新播放)的逻辑
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.btnReplay:
-                if(videoView.isPlaying()){
-                    videoView.resume();//重新播放
-                }
-                break;
         }
     }
     @Override
