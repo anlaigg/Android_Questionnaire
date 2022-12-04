@@ -30,12 +30,10 @@ public class Login extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login_pad);
+        setContentView(R.layout.activity_login);
         initView();
 
-        spinner = findViewById(R.id.spinner);
 
-        enter_button = findViewById(R.id.enter_button);
         enter_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -47,14 +45,13 @@ public class Login extends AppCompatActivity{
                 if(gender.equals("")||name.equals("")||age.equals(""))
                 {
                     Toast.makeText(Login.this, "Please accomplish your input", Toast.LENGTH_LONG).show();
-                    Intent intent = new Intent(Login.this, Login_pad.class);
+                    Intent intent = new Intent(Login.this, Login.class);
                     startActivity(intent);
                     return;
                 }
-                Info.setGender(gender);
+                Info.setSex(gender);
                 Info.setAge(age);
-                Info.setName(name);
-                Intent intent = new Intent(Login.this, question1.class);
+                Intent intent = new Intent(Login.this, question.class);
                 startActivity(intent);
             }
         });
@@ -62,6 +59,8 @@ public class Login extends AppCompatActivity{
     }
 
     public void initView(){
+        enter_button = findViewById(R.id.enter_button);
+        spinner = findViewById(R.id.spinner);
         rg_gender = findViewById(R.id.rg_gender);
         rb_gender1 = findViewById(R.id.rb_man);
         rb_gender2 = findViewById(R.id.rb_woman);

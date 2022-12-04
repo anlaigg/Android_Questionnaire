@@ -21,23 +21,7 @@ public class result extends AppCompatActivity {
 
 
         img = findViewById(R.id.img_result);
-        int grade=0;
-        if(Info.getIndex(0)==1)grade+=3;
-        if(Info.getIndex(0)==3)grade+=1;
-        if(Info.getIndex(1)==2)grade+=3;
-        if(Info.getIndex(1)==3)grade+=1;
-        if(Info.getIndex(2)==1)grade+=3;
-        if(Info.getIndex(2)==3)grade+=1;
-        if(Info.getIndex(3)==1)grade+=3;
-        if(Info.getIndex(3)==2)grade+=1;
-        if(Info.getIndex(4)==2)grade+=3;
-        if(Info.getIndex(4)==3)grade+=1;
-        if(Info.getIndex(5)==1)grade+=3;
-        if(Info.getIndex(5)==3)grade+=1;
-
-        Toast.makeText(result.this, "问卷最终得分为"+grade+".", Toast.LENGTH_SHORT).show();
-
-
+        int grade=Info.getScore();
         if(grade<1){
             img.setImageDrawable(getDrawable(R.drawable.pass));
         }else if(grade<6){
@@ -50,13 +34,6 @@ public class result extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Info.setGender("");
-                Info.setAge("");
-                Info.setName("");
-                for(int i=0;i<6;i++){
-                    Info.setIndex(i,0);
-                }
-
                 Intent intent = new Intent(result.this, Login.class);
                 startActivity(intent);
                 return;

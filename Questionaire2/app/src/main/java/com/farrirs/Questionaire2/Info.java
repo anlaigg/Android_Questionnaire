@@ -1,40 +1,31 @@
 package com.farrirs.Questionaire2;
 
 public class Info {
-    private static int[] index=new int[6];
-    private static String gender;
+    private static int score;
+    private static String sex;
     private static String age;
-    private static String name;
-    public static int getIndex(int idx)
+    public static int getScore()
     {
-        return index[idx];
+        return score;
     }
-    public static void setIndex(int idx, int val)
+    public static void setScore(int _score)
     {
-        index[idx]=val;
+        score=_score;
     }
-    public static String getGender()
+    public static String getSex()
     {
-        return gender;
+        return sex;
     }
-    public static void setGender(String val)
+    public static void setSex(String _sex)
     {
-        gender=val;
+        sex=_sex;
     }
     public static String getAge()
     {
         return age;
     }
-    public static void setAge(String val)
+    public static void setAge(String _age)
     {
-        age=val;
-    }
-    public static String getName()
-    {
-        return name;
-    }
-    public static void setName(String val)
-    {
-        name=val;
+        age=_age;
     }
 }
