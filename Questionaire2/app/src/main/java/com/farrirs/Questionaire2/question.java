@@ -109,19 +109,6 @@ public class question extends AppCompatActivity{
             }
             return result;
         }
-        private void checkNeedPermissions(){
-            //6.0以上需要动态申请权限
-            if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                    != PackageManager.PERMISSION_GRANTED
-                    || ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
-                    != PackageManager.PERMISSION_GRANTED) {
-                //多个权限一起申请
-                ActivityCompat.requestPermissions(this, new String[]{
-                        Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                        Manifest.permission.READ_EXTERNAL_STORAGE
-                }, 1);
-            }
-        }
         void writeResult(int grade) throws IOException {
             String sex=Info.getSex();
             String age=Info.getAge();
@@ -160,7 +147,6 @@ public class question extends AppCompatActivity{
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-            checkNeedPermissions();
             setContentView(R.layout.activity_question);
             questions.add(new questionRepository("当同伴让你保存奇怪的药品时，你会怎么办？", "帮忙保存", "拒绝保存", "不知所措", 0, 2));
             questions.add(new questionRepository("当同伴带你去KTV时，发现有人吸食奇怪的气体，你会怎么办？", "报警", "跟着吸一口", "视而不见", 1, 2));
