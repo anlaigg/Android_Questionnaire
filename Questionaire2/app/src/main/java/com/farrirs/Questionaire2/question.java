@@ -181,6 +181,12 @@ public class question extends AppCompatActivity{
                     if(currentQuestion+1<numQuestions)
                         setQuestionIndex(currentQuestion+1);
                     else {
+                        int grade=computeScore();
+                        try {
+                            writeResult(grade);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                         Info.setScore(computeScore());
                         Intent intent = new Intent(question.this, result.class);
                         startActivity(intent);
@@ -206,28 +212,28 @@ public class question extends AppCompatActivity{
             });
 
 
-            abandon= findViewById(R.id.abandon);
-            abandon.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent intent = new Intent(question.this, Login.class);
-                    startActivity(intent);
-                    return;
-                }
-            });
-
-            export=findViewById(R.id.export);
-            export.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    int grade=computeScore();
-                    try {
-                        writeResult(grade);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
-            });
+//            abandon= findViewById(R.id.abandon);
+//            abandon.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    Intent intent = new Intent(question.this, Login.class);
+//                    startActivity(intent);
+//                    return;
+//                }
+//            });
+//
+//            export=findViewById(R.id.export);
+//            export.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    int grade=computeScore();
+//                    try {
+//                        writeResult(grade);
+//                    } catch (IOException e) {
+//                        e.printStackTrace();
+//                    }
+//                }
+//            });
 
 
             videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
