@@ -5,6 +5,10 @@ plugins {
 android {
     signingConfigs {
         release {
+            storeFile file('S:\\inform\\anlaigg.jks')
+            storePassword '221100'
+            keyAlias 'questionaire2'
+            keyPassword '221100'
         }
     }
     namespace 'com.farrirs.Questionaire2'
@@ -19,6 +23,8 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        signingConfig signingConfigs.release
+        resourceConfigurations += []
     }
 
     buildTypes {

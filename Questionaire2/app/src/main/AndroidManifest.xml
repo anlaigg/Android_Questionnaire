@@ -34,7 +34,8 @@
 
         <activity
             android:name=".question"
-            android:exported="false">
+            android:exported="false"
+            android:hardwareAccelerated="true">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
