@@ -50,6 +50,7 @@ public class Login extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        Log.e("接收广播", "onReceive: 启动了。。。");
         checkNeedPermissions();
         initView();
         enter_button.setOnClickListener(new View.OnClickListener() {
