@@ -9,12 +9,12 @@ public class BootBroadcastReceiver extends BroadcastReceiver {
     private static final String ACTION = "android.intent.action.BOOT_COMPLETED";
     @Override
     public void onReceive(Context context, Intent intent) {
-        Log.e("接收广播", "onReceive: ");
-        Log.e("接收广播", "onReceive: " + intent.getAction());
-        //开机启动
-        if (ACTION.equals(intent.getAction())) {
-            Log.e("接收广播", "onReceive: 启动了。。。");
-        }
+//        Log.e("接收广播", "onReceive: ");
+//        Log.e("接收广播", "onReceive: " + intent.getAction());
+//        //开机启动
+//        if (ACTION.equals(intent.getAction())) {
+//            Log.e("接收广播", "onReceive: 启动了。。。");
+//        }
         if (ACTION.equals(Intent.ACTION_BOOT_COMPLETED)) {
             Intent mainIntent = new Intent(context, Login.class);
 //            mainIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

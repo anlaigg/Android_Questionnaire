@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.VideoView;
@@ -97,7 +98,9 @@ public class question extends AppCompatActivity{
                     break;
             }
             videoView.setVideoURI(Uri.parse(url));
+
             videoView.start();
+
         }
         int computeScore()
         {
@@ -261,6 +264,13 @@ public class question extends AppCompatActivity{
                 @Override
                 public void onPrepared(MediaPlayer mp) {
                     mp.setLooping(true);//让视频循环播放
+                    WindowManager.LayoutParams.FLAG_FULLSCREEN);
+                    RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.FILL_PARENT, RelativeLayout.LayoutParams.FILL_PARENT);
+                    layoutParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
+                    layoutParams.addRule(RelativeLayout.ALIGN_PARENT_TOP);
+                    layoutParams.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
+                    layoutParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+                    videoView.setLayoutParams(layoutParams);
                 }
             });
         }
