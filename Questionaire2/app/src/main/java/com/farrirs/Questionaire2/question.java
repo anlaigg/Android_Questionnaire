@@ -1,8 +1,10 @@
 package com.farrirs.Questionaire2;
 
+import static android.view.View.getDefaultSize;
 import static java.util.Collections.shuffle;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.media.MediaPlayer;
@@ -10,8 +12,11 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.text.TextUtils;
+import android.util.DisplayMetrics;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
@@ -97,6 +102,14 @@ public class question extends AppCompatActivity{
                     url="android.resource://"+getPackageName()+"/"+R.raw.qq6;
                     break;
             }
+
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.FILL_PARENT, RelativeLayout.LayoutParams.FILL_PARENT);
+            layoutParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
+            layoutParams.addRule(RelativeLayout.ALIGN_PARENT_TOP);
+            layoutParams.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
+            layoutParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+            videoView.setLayoutParams(layoutParams);
+
             videoView.setVideoURI(Uri.parse(url));
 
             videoView.start();
@@ -260,19 +273,20 @@ public class question extends AppCompatActivity{
             File file = new File(Environment.getExternalStorageDirectory(), path);//指定视频文件路径
             Toast.makeText(question.this, file.getPath(), Toast.LENGTH_SHORT).show();
             videoView.setVideoPath(file.getPath());//加载path文件代表的视频
+            //对于全屏拉伸操作，主要就是如下代码
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.FILL_PARENT, RelativeLayout.LayoutParams.FILL_PARENT);
+            layoutParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
+            layoutParams.addRule(RelativeLayout.ALIGN_PARENT_TOP);
+            layoutParams.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
+            layoutParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+            videoView.setLayoutParams(layoutParams);
             videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
                 @Override
                 public void onPrepared(MediaPlayer mp) {
                     mp.setLooping(true);//让视频循环播放
-                    WindowManager.LayoutParams.FLAG_FULLSCREEN);
-                    RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.FILL_PARENT, RelativeLayout.LayoutParams.FILL_PARENT);
-                    layoutParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
-                    layoutParams.addRule(RelativeLayout.ALIGN_PARENT_TOP);
-                    layoutParams.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
-                    layoutParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
-                    videoView.setLayoutParams(layoutParams);
                 }
             });
+            videoView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
         }
 
         @Override
